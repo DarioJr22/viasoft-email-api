@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;-webkit-box-shadow: 10px 13px 22px 0px rgba(0,0,0,0.36);
+-moz-box-shadow: 10px 13px 22px 0px rgba(0,0,0,0.36);
+box-shadow: 10px 13px 22px 0px rgba(0,0,0,0.36);">
+<table class="body-wrap" style="width: 100%; max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <!-- Header Vermelho -->
+    <tr>
+        <td style="padding: 30px 20px; background: #E30613; border-radius: 12px 12px 0 0;">
+            <table width="100%">
+                <tr>
+                    <td align="center" style="padding: 15px;">
+
+                        <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700;">
+                            Novo Contato Recebido 🚀
+                        </h1>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- Mensagem Amigável -->
+    <tr>
+        <td style="padding: 25px 25px 15px 25px; background-color: #fff8f8;">
+            <p style="color: #2d3436; font-size: 16px; line-height: 1.5; margin: 0;">
+                Olá somos da equipe Via Soft,<br>
+                Recebemos um novo contato através do nosso site. Aqui estão os detalhes:
+            </p>
+        </td>
+    </tr>
+
+    <!-- Conteúdo -->
+    <tr>
+        <td style="padding: 30px 25px;">
+            <div style="color: #2d3436; font-size: 16px; line-height: 1.6;">
+                <!-- Bloco de Dados -->
+                <div style="border-left: 4px solid #E30613; padding-left: 15px; margin-bottom: 25px;">
+                    <!-- Item de Dados -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #E30613; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Nome:</div>
+                        <div style="color: #2d3436; font-weight: 500;" th:text="${recipientName}"></div>
+                    </div>
+
+                    <!-- Item de Dados -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #E30613; font-size: 14px; margin-bottom: 5px; font-weight: 600;">E-mail:</div>
+                        <div style="color: #2d3436; font-weight: 500;" th:text="${senderEmail}"></div>
+                    </div>
+
+                    <!-- Item de Dados -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #E30613; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Assunto:</div>
+                        <div style="color: #2d3436; font-weight: 500;" th:text="${subject}"></div>
+                    </div>
+
+                    <!-- Novo Campo -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #E30613; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Fonte de Integração:</div>
+                        <div style="color: #2d3436; font-weight: 500;" th:text="${integrationSource}"></div>
+                    </div>
+
+                    <!-- Mensagem -->
+                    <div>
+                        <div style="color: #E30613; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Mensagem:</div>
+                        <div style="color: #2d3436; white-space: pre-line; line-height: 1.5;" th:text="${content}"></div>
+                    </div>
+                </div>
+
+                <!-- Chamada Final -->
+                <p style="color: #666; font-size: 14px; text-align: center; margin: 25px 0 0 0;">
+                    Vamos responder o mais rápido possível! ⏱️
+                </p>
+            </div>
+        </td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+        <td style="padding: 20px; background-color: #2d3436; border-radius: 0 0 12px 12px;">
+            <table width="100%">
+                <tr>
+                    <td align="center" style="padding: 15px;">
+                        <div style="color: #ffffff; font-size: 12px; line-height: 1.5;">
+                            <p style="margin: 0; opacity: 0.8;">
+                                Via Soft - Transformação Digital através da Inovação
+                            </p>
+                            <p style="margin: 8px 0; opacity: 0.8;">
+                                <a href="https://viasoft.com.br/" style="color: #fff; text-decoration: none;">www.via.soft</a> |
+                                <a href="mailto:contato@via.soft" style="color: #fff; text-decoration: none;">contato@via.soft</a>
+                            </p>
+                            <p style="margin: 0; font-size: 11px; opacity: 0.6;">
+                                © 2024 Todos os direitos reservados
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
