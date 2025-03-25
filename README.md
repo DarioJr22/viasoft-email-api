@@ -146,7 +146,7 @@ docker-compose down ou ctrl+c
 curl -X POST http://localhost:8080/emails/send \
   -H "Content-Type: application/json" \
   -d '{
-      "recipientEmail": "dario.junior@mv.com.br",
+      "recipientEmail": "dario.rocha.junior@gmail.com.br",
       "recipientName": "OCI User",
       "senderEmail": "sender.oci@viassoft.com",
       "subject": "Test Email OCI",
