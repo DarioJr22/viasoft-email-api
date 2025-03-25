@@ -41,10 +41,11 @@ A aplicação permite configurar a plataforma de envio de e-mails via variável 
 
 ### 🔧 Variáveis de Ambiente  
 
-No arquivo `application.properties`, a variável `mailPlatform` define qual serviço de e-mail será utilizado:  
+No arquivo `application.properties`, a variável `mail.integracao` define qual serviço de e-mail será utilizado:  
 
 ```
-mailPlatform=AWS  # ou OCI
+#aws/oci opitions
+mail.integracao=aws
 ```
 
 Para sobrescrever essa variável ao rodar com Docker Compose, modifique o arquivo `docker-compose.yml` (veja abaixo).  
@@ -60,11 +61,11 @@ Para sobrescrever essa variável ao rodar com Docker Compose, modifique o arquiv
 
 ```json
 {
-  "emailDestinatario": "luiz@gmail.com",
-  "nomeDestinatario": "Luiz Felipe",
-  "remetente": "LuizFelipe@mail.com",
-  "assunto": "Novo E-mail",
-  "conteudo": "Conteúdo do e-mail"
+  "recipientEmail": "dario.rocha.junior@gmail.com.br",
+  "recipientName": "OCI User",
+  "senderEmail": "sender.oci@viassoft.com",
+  "subject": "Test Email OCI",
+  "content": "This is a test email for OCI integration."
 }
 ```
 
@@ -123,6 +124,7 @@ cd viasoft-email-api
 2️⃣ Crie e inicie os containers com **Docker Compose**:  
 
 ```bash
+cd docker
 docker-compose up --build
 ```
 
@@ -131,7 +133,7 @@ docker-compose up --build
 3️⃣ Para parar a aplicação:  
 
 ```bash
-docker-compose down
+docker-compose down ou ctrl+c
 ```
 
 ---
@@ -144,12 +146,12 @@ docker-compose down
 curl -X POST http://localhost:8080/emails/send \
   -H "Content-Type: application/json" \
   -d '{
-        "emailDestinatario": "luiz@gmail.com",
-        "nomeDestinatario": "Luiz Felipe",
-        "remetente": "LuizFelipe@mail.com",
-        "assunto": "Novo E-mail",
-        "conteudo": "Conteúdo do e-mail"
-      }'
+      "recipientEmail": "dario.junior@mv.com.br",
+      "recipientName": "OCI User",
+      "senderEmail": "sender.oci@viassoft.com",
+      "subject": "Test Email OCI",
+      "content": "This is a test email for OCI integration."
+    }'
 ```
 
 ### ✅ Usando `Postman`  
@@ -162,25 +164,6 @@ curl -X POST http://localhost:8080/emails/send \
 
 ---
 
-## 📌 **Docker Compose Configuração (`docker-compose.yml`)**  
-
-```yaml
-version: '3.8'
-
-services:
-  email-api:
-    build: .
-    container_name: viasoft-email-api
-    ports:
-      - "8080:8080"
-    environment:
-      - mailPlatform=AWS
-    restart: always
-```
-
-Se desejar mudar a plataforma de e-mail, edite `mailPlatform` para `OCI`.  
-
----
 
 ## 👥 Contribuição  
 
