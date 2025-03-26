@@ -69,11 +69,8 @@ public class SendMailTest {
         sendMail.sendHtmlEmail(request, to);
 
         // Assert
-        // Verifica se o template foi processado
         verify(templateEngine, times(1))
                 .process(eq(SendMail.EMAIL_TEMPLATE), any(Context.class));
-
-        // Verifica se o e-mail foi enviado
         verify(emailSender, times(1)).send(mimeMessage);
     }
 

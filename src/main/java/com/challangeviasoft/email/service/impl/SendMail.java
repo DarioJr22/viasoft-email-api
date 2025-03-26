@@ -1,5 +1,6 @@
 package com.challangeviasoft.email.service.impl;
 
+import com.challangeviasoft.email.config.MailConfig;
 import com.challangeviasoft.email.model.dto.EmailRequestDTO;
 import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.mail.internet.MimeMessage;
@@ -26,6 +27,8 @@ public class SendMail {
     private TemplateEngine templateEngine;
     @Value("${spring.mail.username}")
     private String fromEmail;
+    @Value("${mail.integracao}")
+    private String integrationSource;
 
     private MimeMessage getMimeMessage() {
         return emailSender.createMimeMessage();
@@ -41,6 +44,7 @@ public class SendMail {
             context.setVariable("senderEmail", request.senderEmail());
             context.setVariable("subject", request.subject());
             context.setVariable("content", request.content());
+            context.setVariable("integrationSource",integrationSource.toUpperCase());
             String text = templateEngine.process(EMAIL_TEMPLATE, context);
             MimeMessage message = getMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, UTF_8_ENCODING);

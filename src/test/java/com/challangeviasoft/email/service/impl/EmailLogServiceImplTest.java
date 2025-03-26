@@ -47,7 +47,6 @@ public class EmailLogServiceImplTest {
             "Test Content"
     );
 
-    // ========== Testes para logEmailEvent() ==========
     @Test
     void testLogEmailEvent_Success() {
         // Arrange
@@ -78,7 +77,6 @@ public class EmailLogServiceImplTest {
         assertEquals(sampleRequest.recipientEmail(), savedLog.getRecipientEmail());
     }
 
-    // ========== Testes para getAllLogs() ==========
     @Test
     void testGetAllLogs_Pagination() {
         // Arrange
